@@ -5,6 +5,7 @@ import android.app.Application;
 import javax.inject.Singleton;
 
 import co.za.drivetrek.daggerpractice.BaseApplication;
+import co.za.drivetrek.daggerpractice.SessionManager;
 import dagger.BindsInstance;
 import dagger.Component;
 import dagger.android.AndroidInjector;
@@ -20,6 +21,8 @@ import dagger.android.support.AndroidSupportInjectionModule;
         }
 )
 public interface AppComponent extends AndroidInjector<BaseApplication> {
+
+    SessionManager sessionManager();
 
     @Component.Builder
     interface Builder {
