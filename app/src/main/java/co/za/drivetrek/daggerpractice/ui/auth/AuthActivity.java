@@ -42,6 +42,9 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
     @Inject
     RequestManager requestManager;
 
+    @Inject
+    User userNumber1;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +56,8 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
 
         setLogo();
         subScribeObservers();
+
+        Log.d(TAG, "onCreate: " + userNumber1);
     }
 
     private void setLogo() {
