@@ -12,6 +12,7 @@ import com.bumptech.glide.request.RequestOptions;
 import javax.inject.Singleton;
 
 import co.za.drivetrek.daggerpractice.R;
+import co.za.drivetrek.daggerpractice.models.User;
 import co.za.drivetrek.daggerpractice.util.Constants;
 import dagger.Module;
 import dagger.Provides;
@@ -51,5 +52,11 @@ public class AppModule {
     @Provides
     static Drawable provideAppDrawable(Application application) {
         return ContextCompat.getDrawable(application, R.drawable.logo);
+    }
+
+    @Singleton
+    @Provides
+    static User someUser() {
+        return new User();
     }
 }
