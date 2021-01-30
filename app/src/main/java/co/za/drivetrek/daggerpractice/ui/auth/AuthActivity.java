@@ -1,5 +1,6 @@
 package co.za.drivetrek.daggerpractice.ui.auth;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -21,6 +22,7 @@ import javax.inject.Inject;
 
 import co.za.drivetrek.daggerpractice.R;
 import co.za.drivetrek.daggerpractice.models.User;
+import co.za.drivetrek.daggerpractice.ui.main.MainActivity;
 import co.za.drivetrek.daggerpractice.viewmodels.ViewModelProviderFactory;
 import dagger.android.support.DaggerAppCompatActivity;
 
@@ -71,6 +73,7 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
                         case AUTHENTICATED:
                             showProgressBar(false);
                             Log.d(TAG, "onChanged(): LOGIN SUCCESS: " + userAuthResource.data.getEmail());
+                            onLoginSuccess();
                             break;
                         case ERROR:
                             showProgressBar(false);
@@ -109,5 +112,11 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
         } else {
             progressBar.setVisibility(View.GONE);
         }
+    }
+
+    private void onLoginSuccess() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
